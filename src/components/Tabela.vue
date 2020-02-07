@@ -17,7 +17,7 @@
                     :items="items"
                     :headers="columns"
                     class="elevation-1"
-                    :sort-by="['title', 'release_date']"
+                    :sort-by="['title']"
                 >
                  <template v-slot:items="props">
                     <td class="text-xs-center">{{ props.item.title }}</td>
