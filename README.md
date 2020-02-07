@@ -3,8 +3,8 @@ Criação de uma tabela consumindo dados da API "The Movie DB".
 Foram utilizados para o desenvolvimento desse projeto Vuejs e Vuetify.
 
 A tabela consiste em uma lista de filmes em cartaz no Brasil e nela é possível filtrar 
-a forma de exibição de itens na tabela, pode pesquisar os filmes que estão na lista, 
-além de poder ordernar os filmes de acordo com as categorias presentes nesta tabela.
+a forma de exibição de itens na tabela, pesquisar os filmes que estão na lista e ordernar
+os filmes de acordo com as categorias presentes nesta tabela.
 
 ## Project setup
 ```
