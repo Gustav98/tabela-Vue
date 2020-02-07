@@ -1,5 +1,5 @@
 <template>
-    <v-simple-table dark>
+    <v-simple-table>
         <template v-slot:default>
             <div>
                 <v-card-title>
@@ -13,15 +13,19 @@
                     ></v-text-field>
                 </v-card-title>
                 <v-data-table 
-                :search="search"
-                :items="items"
-                :headers="columns"
+                    :search="search"
+                    :items="items"
+                    :headers="columns"
+                    class="elevation-1"
+                    :sort-by="['title', 'release_date']"
                 >
                  <template v-slot:items="props">
                     <td class="text-xs-center">{{ props.item.title }}</td>
                     <td class="text-xs-center">{{ props.item.popularity }}</td>
                     <td class="text-xs-center">{{ props.item.vote_average  }}</td>
-                    <td class="text-xs-center">{{ props.item.release_date }}</td>
+                </template>
+                <template v-slot:item.release_date="{ item }">
+                    {{ formatDate(item.release_date) }}
                 </template>
                 </v-data-table>
             </div>
@@ -31,6 +35,7 @@
 
 
 <script>
+import moment from 'moment'
 import axios from 'axios'
 export default {
   name: 'Tabela',
@@ -45,7 +50,6 @@ export default {
           columns: [
           {
             text: 'Título',
-            sortable: false,
             value: 'title',
           },
           { text: 'Popularidade', value: 'popularity' },
@@ -68,6 +72,9 @@ export default {
             this.errored = true
         })
         .finally(() => this.loading = false);
+    },
+    formatDate(value){
+        return moment(value).format('DD/MM/YYYY')
     }
   }
 };
